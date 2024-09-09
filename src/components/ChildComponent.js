@@ -9,10 +9,15 @@ const ChildComponent = ({ onUpdateData }) => {
 
   const handleSubmit = () => {
     onUpdateData(inputValue);
+    setInputValue(''); // Clear input field after submission
+  };
+
+  const handleDelete = () => {
+    setInputValue('');
   };
 
   return (
-    <div>
+    <div className="child-container">
       <h2>Child Component</h2>
       <input
         type="text"
@@ -20,7 +25,8 @@ const ChildComponent = ({ onUpdateData }) => {
         onChange={handleChange}
         placeholder="Enter new data"
       />
-      <button onClick={handleSubmit}>Update Parent Data</button>
+      <button className="update-button" onClick={handleSubmit}>Update Parent Data</button>
+      <button className="delete-button" onClick={handleDelete}>Clear Input</button>
     </div>
   );
 };

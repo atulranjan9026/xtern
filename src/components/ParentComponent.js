@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChildComponent from './src/components/ChildComponent';
+import ChildComponent from './ChildComponent';
 
 const ParentComponent = () => {
   const [data, setData] = useState('Initial data from Parent');
@@ -8,10 +8,15 @@ const ParentComponent = () => {
     setData(newData);
   };
 
+  const handleDeleteData = () => {
+    setData('');
+  };
+
   return (
-    <div>
+    <div className="parent-container">
       <h1>Parent Component</h1>
       <p>Data from Parent: {data}</p>
+      <button className="delete-button" onClick={handleDeleteData}>Delete Data</button>
       <ChildComponent onUpdateData={handleUpdateData} />
     </div>
   );
